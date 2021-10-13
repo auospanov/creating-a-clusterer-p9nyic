@@ -1,0 +1,21 @@
+<div>
+  <div
+    [hidden]="isShowLocation"
+    class="container text-center align-items-center justify-content-center"
+    [style.height.px]="height"
+  >
+    <!--43°15′ с. ш. 76°54′-->
+    <ya-map
+      [hidden]="isShowLocation"
+      [center]="[43.25, 76.54]"
+      [zoom]="6"
+      [state]="{ behaviors: ['default', 'scrollZoom'] }"
+      (ready)="onMapReady($event)"
+    >
+      <ya-clusterer [hidden]="!isClusterLoaded"
+        [options]="clustererOptions"
+        (ready)="onClustererReady($event)"
+      ></ya-clusterer> 
+    </ya-map>
+  </div>
+</div>
